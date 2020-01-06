@@ -26,8 +26,8 @@
 <style scoped>
   .goods {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-around;
-
+    text-align: center;
   }
 </style>

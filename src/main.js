@@ -11,6 +11,8 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
+Vue.prototype.$Bus = new Vue()
+
 new Vue({
   router,
   store,

@@ -5,7 +5,7 @@
             <img slot="item-icon-active" src="@/assets/img/tabbar/home-active.svg" alt="">
             <div slot="item-text">首页</div>
         </tab-bar-item>
-        <tab-bar-item path="/ad">
+        <tab-bar-item path="/category">
             <img slot="item-icon" src="@/assets/img/tabbar/ad.svg" alt="">
             <img slot="item-icon-active" src="@/assets/img/tabbar/ad-active.svg" alt="">
             <div slot="item-text">广告</div>
