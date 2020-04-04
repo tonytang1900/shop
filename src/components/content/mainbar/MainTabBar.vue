@@ -8,12 +8,12 @@
         <tab-bar-item path="/category">
             <img slot="item-icon" src="@/assets/img/tabbar/ad.svg" alt="">
             <img slot="item-icon-active" src="@/assets/img/tabbar/ad-active.svg" alt="">
-            <div slot="item-text">广告</div>
+            <div slot="item-text">分类</div>
         </tab-bar-item>
-        <tab-bar-item path="/database">
+        <tab-bar-item path="/cart">
             <img slot="item-icon" src="@/assets/img/tabbar/database.svg" alt="">
             <img slot="item-icon-active" src="@/assets/img/tabbar/database-active.svg" alt="">
-            <div slot="item-text">资料库</div>
+            <div slot="item-text">购物车</div>
         </tab-bar-item>
         <tab-bar-item path="/account">
             <img slot="item-icon" src="@/assets/img/tabbar/account.svg" alt="">

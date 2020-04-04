@@ -46,8 +46,8 @@
       })
     },
     methods: {
-      scrollTo(){
-        this.scroll.scrollTo(0,0,300)
+      scrollTo(x, y ,time=300){
+        this.scroll.scrollTo(x,y,time)
       },
       refresh(){
         this.scroll && this.scroll.refresh()

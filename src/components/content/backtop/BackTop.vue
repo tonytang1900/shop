@@ -16,4 +16,8 @@
     right: 5px;
     bottom: 49px;
   }
+  .backtop img {
+    width: 50px;
+    height: 50px;
+  }
 </style>

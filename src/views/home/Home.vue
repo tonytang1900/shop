@@ -17,6 +17,7 @@
                    class="tab-control"
                    @tabClick="tabTouch"/>
       <goods :goods="goods[currentType].list"/>
+
     </scroll>
 
     <back-top class="backtop"
@@ -35,8 +36,8 @@
   import Goods from '@/components/content/goods/Goods'
   import BackTop from '@/components/content/backtop/BackTop'
 
-  import {getHomeGoods, getHomeMultidata} from "@/network/home";
-  import {debounce} from "@/common/utils";
+  import {getHomeGoods, getHomeMultidata} from "@/network/home"
+  import {debounce} from "@/common/utils"
 
   export default {
     name: "Home",
@@ -72,11 +73,11 @@
       this.getHomeGoods('new')
       this.getHomeGoods('sell')
     },
-    mounted(){
+    mounted() {
       const refresh = debounce(this.$refs.s.refresh)
 
       //防抖动
-      this.$Bus.$on('itemImageLoad', ()=>{
+      this.$Bus.$on('itemImageLoad', () => {
         // this.$refs.s.scroll.refresh()
         refresh()
       })
@@ -98,20 +99,20 @@
         this.$refs.tabControl1.currentIndex = index
         this.$refs.tabControl2.currentIndex = index
       },
-      backtop(){
-        this.$refs.s.scrollTo()
+      backtop() {
+        this.$refs.s.scrollTo(0, 0, 300)
       },
-      contentscroll(position){
+      contentscroll(position) {
         //右下角 向上箭头 是否显示
         this.isShow = (-position.y) > 1000
 
         //判断吸顶
         this.isTabFixed = (-position.y) > this.tabOffsetTop
       },
-      loadMore(){
+      loadMore() {
         this.getHomeGoods(this.currentType)
       },
-      swiperImageLoad(){
+      swiperImageLoad() {
         this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       },
       /*网络请求*/
@@ -119,16 +120,16 @@
         getHomeMultidata().then(res => {
           this.banners = res.data.data.banner.list;
           this.recommends = res.data.data.recommend.list;
+        }).catch(err => {
+          this.$refs.s.refresh()
         })
       },
       getHomeGoods(type) {
-
         const page = this.goods[type].page + 1
         getHomeGoods(type, page).then(res => {
-          this.goods[type].list.push(...res.data.data.list)
+          this.goods[type].list.push(...(res.data && res.data.data.list))
           this.goods[type].page = page + 1
-          
-          console.log(res)
+
           this.$refs.s.finishPullUp()
         })
       }

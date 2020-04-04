@@ -19,14 +19,15 @@
               return []
             }
           }
-      }
+      },
     }
 </script>
 
 <style scoped>
   #recommend {
     display: flex;
-    width: 100%;
+    /*width: 100%;*/
+    flex-wrap: wrap;
     text-align: center;
     font-size: 12px;
 
