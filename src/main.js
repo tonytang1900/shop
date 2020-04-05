@@ -6,10 +6,15 @@ import store from './store'
 import toast from '@/components/common/toast'
 Vue.use(toast)
 //解决300毫秒延迟问题
-// import attachFastClick from 'fastclick'
-// var attachFastClick = require('fastclick');
-// attachFastClick(document.body);
-
+import FastClick from 'fastclick'
+FastClick.attach(document.body);
+//懒加载
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  loading: require('@/assets/img/common/placeholder.png'),
+  attempt: 1
+})
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
