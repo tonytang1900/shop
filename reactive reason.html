@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>reactive</title>
+  <meta charset="UTF-8">
+  <title>reactive</title>
 </head>
 <body>
-  <div id="app">
-    {{message}}
-  </div>
-
+<div id="app">
+  {{message}}
+</div>
+<script>
+  const obj = {}
+  let value = ''
+  Object.defineProperty(obj, 'message', {
+    set(newVal){
+      value = newVal
+    },
+    get(){
+      return value
+    }
+  })
+</script>
 <script src="./node_modules/vue/dist/vue.js"></script>
 <script>
-  const app =new Vue({
+  const app = new Vue({
     el: '#app',
     data: {
       message: 'hehe'
